@@ -15,25 +15,21 @@
         <span class="navbar-brand mb-0 h1">Timer:</span>
       </nav>
 
-      <div class="container border-show">
-            <div id = quizContainer>
-                <h1 class = "text-center mx-0">Coding Quiz</h1>
-                    
-                    <p id = "question"></p>
-                    <div class = "buttons">
-                        <button id = "btn"><span id = "choice"></span></button>
-                        <button id = "btn1"><span id = "choice1"></span></button>
-                        <button id = "btn2"><span id = "choice2"></span></button>
-                        <button id = "btn3"><span id = "choice3"></span></button>
-                    </div>
-                    <p id="progress"></p>
+    <div class="container border-show" style ="display: block;">
+            <h1 class = "text-center">JavaScript Quiz</h1> 
+                <a id="wrapper" href="quiz.html"><button id ="begin-quiz">Start</button></a>  //need to make on click even for begin quiz to display questions and turn display on for questions
+    </div>
 
-            </div>
-
+    <div id="questions" style="display: none;">
+      <h2 id="quest">Question</h2>
+      <div>
+          <ol id="multiplechoice">
+              <button id="A" onclick="correctAnswer('A')"></button>
+              <button id="B" onclick="correctAnswer('B')"></button>
+              <button id="C" onclick="correctAnswer('C')"></button>
+              <button id="D" onclick="correctAnswer('D')"></button>
+          </ol>
       </div>
-
-
-
 
 
 
