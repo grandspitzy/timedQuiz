@@ -1,0 +1,14 @@
+body{
+    background-color:grey;
+    color:white;
+}
+
+.bg-color{
+    background-color: #44AB88;
+    color:white;
+}
+
+.border-show{
+    border: 2px solid red;
+}
+
