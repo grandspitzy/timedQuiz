@@ -41,17 +41,18 @@ var questions = [
 var start = document.getElementById("start");
 var quiz = document.getElementById("quiz");
 var question = document.getElementById("question");
-var score = document.getElementById("score");
+var total = document.getElementById("score1");
 var counter = document.getElementById("counter");
 var choiceA = document.getElementById("A");
 var choiceB = document.getElementById("B");
 var choiceC = document.getElementById("C");
 var choiceD = document.getElementById("D");
-
+var output1 = document.getElementById("output");
 
 //variables
 var lastQuestion = questions.length-1;
 var runningQuestion = 0;
+var score = 0;
 
 function renderQuestion (){
     var q = questions[runningQuestion];
@@ -67,13 +68,32 @@ start.addEventListener("click", startQuiz);
 function startQuiz (){
     start.style.display = "none";
     renderQuestion();
-    quiz.style.display = "block";
-    
+    quiz.style.display = "block";  
 }
 //checkAnswer
 function checkAnswer (answer) {
-    if (answer == questions[runningQuestion])
+    if (answer == questions[runningQuestion].correct){
+        score++;
+    } else{   
+        score--;      
+    }
+    if (runningQuestion < lastQuestion){
+        runningQuestion++;
+        renderQuestion();
+    }else{
+        scoreRender(); //end quiz
+    }
 }
+
+function scoreRender (){
+    quiz.style.display = "none";
+    score1.style.display = "block";
+    //add name and score to score div + add a div
+    total.innerHTML = "<p>" + score + "</p>"; //edit to make it look better
+    
+}
+
+
 
 
 

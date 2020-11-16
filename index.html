@@ -12,13 +12,13 @@
 </head>
 <body>
     <nav class="navbar bg-color">
-        <a class="navbar-brand bg-color mr-auto" href="#">View Highscores</a>
+        <a class="navbar-brand bg-color mr-auto" href="#">View High Scores</a>
         <span class="navbar-brand mb-0 h1">Timer:</span>
       </nav>
 
-      <div class ="container">
-          <div id = "start">Start Quiz!</div>
-          <div id = "quiz" style="display: none;">
+        <div class ="container">
+            <div id = "start">Start Quiz!</div>
+            <div id = "quiz" style="display: none;">
                 <div id = "question"></div>
                 <div id = "choices">
                     <div class = "choice"  id="A" onclick="checkAnswer('A')"></div>
@@ -26,11 +26,18 @@
                     <div class = "choice"  id="C" onclick="checkAnswer('C')"></div>
                     <div class = "choice"  id="D" onclick="checkAnswer('D')"></div>
                 </div> 
-
+                <hr>
+                <div id = "output1" style="display: none;"> Correct </div> 
+                <div id = "output2" style="display: none;"> Wrong </div>
                 <div id = "timer"></div>
             </div>
-            <div id = "score" style="display: none;"></div>
+            
+            <div id = "score1" style="display: none;"></div>
+
+
+
       </div>
+
 
 
 
