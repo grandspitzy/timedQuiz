@@ -7,6 +7,7 @@
 <meta name="Description" content="Enter your description here"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="style.css">
+
 <title>Title</title>
 </head>
 <body>
@@ -15,29 +16,34 @@
         <span class="navbar-brand mb-0 h1">Timer:</span>
       </nav>
 
-    <div class="container border-show" style ="display: block;">
-            <h1 class = "text-center">JavaScript Quiz</h1> 
-                <a id="wrapper" href="quiz.html"><button id ="begin-quiz">Start</button></a>  //need to make on click even for begin quiz to display questions and turn display on for questions
-    </div>
+      <div class ="container">
+          <div id = "start">Start Quiz!</div>
+          <div id = "quiz" style="display: none;">
+                <div id = "question"></div>
+                <div id = "choices">
+                    <div class = "choice"  id="A" onclick="checkAnswer('A')"></div>
+                    <div class = "choice"  id="B" onclick="checkAnswer('B')"></div>
+                    <div class = "choice"  id="C" onclick="checkAnswer('C')"></div>
+                    <div class = "choice"  id="D" onclick="checkAnswer('D')"></div>
+                </div> 
 
-    <div id="questions" style="display: none;">
-      <h2 id="quest">Question</h2>
-      <div>
-          <ol id="multiplechoice">
-              <button id="A" onclick="correctAnswer('A')"></button>
-              <button id="B" onclick="correctAnswer('B')"></button>
-              <button id="C" onclick="correctAnswer('C')"></button>
-              <button id="D" onclick="correctAnswer('D')"></button>
-          </ol>
+                <div id = "timer"></div>
+            </div>
+            <div id = "score" style="display: none;"></div>
       </div>
 
 
 
+      
 
 
 
 
 
+
+
+<script src="script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
