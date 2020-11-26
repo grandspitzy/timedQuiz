@@ -6,17 +6,18 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="Description" content="Enter your description here"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="Assets\style.css">
 
 <title>Title</title>
 </head>
 <body>
     <nav class="navbar bg-color">
         <a class="navbar-brand bg-color mr-auto" href="#">View High Scores</a>
-        <span class="navbar-brand mb-0 h1">Timer:</span>
+        <span id = "timer" class="navbar-brand mb-0 h1">Timer:</span> 
       </nav>
 
         <div class ="container">
+            
             <div id = "start">Start Quiz!</div>
             <div id = "quiz" style="display: none;">
                 <div id = "question"></div>
@@ -29,17 +30,14 @@
                 <hr>
                 <div id = "output1" style="display: none;"> Correct </div> 
                 <div id = "output2" style="display: none;"> Wrong </div>
-                <div id = "timer"></div>
             </div>
-            
-            <div id = "score1" style="display: none;"></div>
+            <div id = "scoreBin" style="display: none;"> 
+                <p>Your Score is: <span id = "score1"></span></p>
+            </div>
+        </div>
 
 
-
-      </div>
-
-
-
+     
 
       
 
@@ -49,7 +47,7 @@
 
 
 
-<script src="script.js"></script>
+<script src="Assets/script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>

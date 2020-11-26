@@ -5,35 +5,35 @@ var questions = [
         choiceB: "1996", 
         choiceC: "2020", 
         choiceD: "2015", 
-        correct:"a"
+        correct:"A"
     }, {
         question: "How do you compare 2 variables to see if they are the same type and value",
         choiceA : "===",  
         choiceB : "=", 
         choiceC : "==", 
         choiceD : "!==", 
-        correct : "a"
+        correct : "A"
     },{
         question : "What do JS stand for?",
         choiceA : "Java Soup",  
         choiceB : "Jail Sentence", 
         choiceC : "JavaScript", 
         choiceD : "TypeScript", 
-        correct : "c"
+        correct : "C"
     },{
         question: "Who invented JavaScript?",
         choiceA : "Patrick Dempsey",  
         choiceB : "Brendan Eich", 
         choiceC : "Tupac", 
-        choiceD : "Donal Trump", 
-        correct : "b"
+        choiceD : "Donald Trump", 
+        correct : "B"
     },{
         question: "When would you use a for loop in JavaScript?",
         choiceA : "After compling",  
         choiceB : "When driving your Tesla", 
         choiceC : "When it is time to dance", 
-        choiceD : "Do a specfic block of code multiple times", 
-        correct : "d"
+        choiceD : "Do a specific block of code multiple times", 
+        correct : "D"
     }
 
 ];
@@ -47,13 +47,20 @@ var choiceA = document.getElementById("A");
 var choiceB = document.getElementById("B");
 var choiceC = document.getElementById("C");
 var choiceD = document.getElementById("D");
-var output1 = document.getElementById("output");
+var output1 = document.getElementById("output1");
+var timeEl = document.getElementById("timer");
+var scoreBin = document.getElementById("scoreBin")
 
 //variables
 var lastQuestion = questions.length-1;
 var runningQuestion = 0;
 var score = 0;
+var negScore = 0;
+var secondsLeft = 30;
+var timerInterval;
 
+
+//render questions
 function renderQuestion (){
     var q = questions[runningQuestion];
     question.innerHTML = "<p>" + q.question + "</p>";
@@ -62,38 +69,64 @@ function renderQuestion (){
     choiceC.innerHTML = q.choiceC;
     choiceD.innerHTML = q.choiceD;
 }
-start.addEventListener("click", startQuiz);
 
 //start quiz
 function startQuiz (){
+    timerInterval = setInterval(function () {
+        secondsLeft--;
+        timeEl.textContent = secondsLeft + " seconds left"
+
+        // timer runs out 
+        if (secondsLeft <= 0) {
+            clearInterval(timerInterval); 
+            timeEl.style.display = "none";
+            scoreRender();   
+        };
+    }, 1000);
+   
     start.style.display = "none";
     renderQuestion();
     quiz.style.display = "block";  
+    timeEl.style.display = "block";
 }
+function sendMessage() {
+    timeEL.textContent = "Your time is up!";
+};
+
+
 //checkAnswer
 function checkAnswer (answer) {
     if (answer == questions[runningQuestion].correct){
         score++;
-    } else{   
-        score--;      
+    }else {
+        secondsLeft = secondsLeft-10;
     }
     if (runningQuestion < lastQuestion){
         runningQuestion++;
         renderQuestion();
     }else{
         scoreRender(); //end quiz
+        clearInterval(timerInterval); 
+        timeEl.style.display = "none";
     }
 }
-
 function scoreRender (){
     quiz.style.display = "none";
-    score1.style.display = "block";
+    scoreBin.style.display = "block";
+    score1.style.display = "inline-block";
+   
     //add name and score to score div + add a div
-    total.innerHTML = "<p>" + score + "</p>"; //edit to make it look better
-    
+    if (score >= 0){
+    total.innerHTML = "<p>" + score + "</p>"; //edit to make it look better 
+}   else {
+    total.innerHTML = "<p>" +"0"+ "</p>"; //edit to make it look better 
+}
 }
 
 
+
+
+start.addEventListener("click", startQuiz);
 
 
 
