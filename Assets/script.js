@@ -49,7 +49,8 @@ var choiceC = document.getElementById("C");
 var choiceD = document.getElementById("D");
 var output1 = document.getElementById("output1");
 var timeEl = document.getElementById("timer");
-var scoreBin = document.getElementById("scoreBin")
+var scoreBin = document.getElementById("scoreBin");
+var leaderBoard = document.getElementById("leaderBoard");
 
 //variables
 var lastQuestion = questions.length-1;
@@ -58,7 +59,7 @@ var score = 0;
 var negScore = 0;
 var secondsLeft = 30;
 var timerInterval;
-
+var inputVal;
 
 //render questions
 function renderQuestion (){
@@ -123,10 +124,18 @@ function scoreRender (){
 }
 }
 
-
-
-
 start.addEventListener("click", startQuiz);
 
+submitLeader.addEventListener("click", function(){
+    score1.style.display = "none";
+    scoreBin.style.display = "none";
+    leaderBoard.style.display = "block";
+    var inputVal = document.getElementById("leaderInitials").value;
+    localStorage.setItem("score" , score);
+    localStorage.setItem("name", inputVal);
+    leaderScore.textContent = score;
+    leaderName.textContent = inputVal;
+     
 
+});
 
