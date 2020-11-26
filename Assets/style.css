@@ -8,12 +8,30 @@ body{
     color:white;
 }
 
-.border-show{
-    border: 2px solid red;
-}
-
 #wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
   }
+
+#start {
+    font-size: 50px;
+    text-align: center;
+    color:darkorange;
+}
+#start:hover {
+    color: orange;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.choice {
+    color:white;
+}
+.choice:hover {
+    color: orange;
+}
+#question {
+    color: white;
+}
