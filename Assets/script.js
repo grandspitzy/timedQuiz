@@ -52,6 +52,7 @@ var timeEl = document.getElementById("timer");
 var scoreBin = document.getElementById("scoreBin");
 var leaderBoard = document.getElementById("leaderBoard");
 
+
 //variables
 var lastQuestion = questions.length-1;
 var runningQuestion = 0;
@@ -131,11 +132,11 @@ submitLeader.addEventListener("click", function(){
     scoreBin.style.display = "none";
     leaderBoard.style.display = "block";
     var inputVal = document.getElementById("leaderInitials").value;
-    localStorage.setItem("score" , score);
-    localStorage.setItem("name", inputVal);
-    leaderScore.textContent = score;
-    leaderName.textContent = inputVal;
-     
+    localStorage.setItem("score", JSON.stringify(score));
+    localStorage.setItem("name", JSON.stringify(inputVal));
+    leaderScore.innerHTML = JSON.parse(localStorage.getItem("score"));
+    leaderName.innerHTML = JSON.parse(localStorage.getItem("name"));
 
 });
+
 
